@@ -1,0 +1,33 @@
+h1 {
+    color: red;
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+
+.is-flex{
+    display: flex;
+}
+
+.width-50 {
+    width:50%;
+}
+
+.is-full-width {
+    width:100%
+}
+
+
+.container {
+    background-color:gray;
+
+}
+
+
+.button {
+    margin:10px;
+
+}

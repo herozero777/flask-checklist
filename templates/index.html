@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Treat Scene Management Website
+{% endblock %}
+
+{% block heading %}
+Weekly Treat
+{% endblock %}
+
+{% block body %}
+
+<div class="is-flex container-width">
+    <p> {{ message }} </p>
+</div>
+
+<div class="is-flex container-width">
+    <div class="width-50">
+        <form action="{{ url_for('index') }}" method="post" class="is-flex" >
+            <input class="is-full-width" type="text" name="add_given_treat_ppl" placeholder="People who've given treat">
+            <button class="button">Add</button>
+        </form>
+    </div>
+    <div class="width-50">
+        <form action="{{ url_for('index') }}" method="post" class="is-flex" >
+            <input class="is-full-width" type="text" name="add_pending_treat_ppl" placeholder="People who've to give treat">
+            <button class="button">Add</button>
+        </form>
+    </div>
+</div>
+
+<div class="is-flex container-width">
+    <div class="width-50">
+        <div>
+            <h2>
+                People who have given the treat!
+            </h2>
+        </div>
+        <div>
+            <ul>
+                {% for row in treat_given_ppl %}
+                    <li>{{ row.person }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="width-50">
+        <div>
+            <h2>
+                People pending
+            </h2>
+        </div>
+        <div>
+            <ul>
+                {% for row in treat_pending_ppl %}
+                    <li>{{ row.person }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="is-flex container-width">
+    <div class="width-50">
+        <form action="{{ url_for('index') }}" method="post" class="is-flex" >
+            <input class="is-full-width" type="text" name="rm_given_treat_ppl" placeholder="Enter the name who has given the treat">
+            <button class="button">Remove</button>
+        </form>
+    </div>
+    <div class="width-50">
+        <form action="{{ url_for('index') }}" method="post" class="is-flex" >
+            <input class="is-full-width" type="text" name="rm_pending_treat_ppl" placeholder="Enter the name who has given the treat">
+            <button class="button">Remove</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
